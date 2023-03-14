@@ -11,7 +11,7 @@ const port = process.env.PORT || 3000;
         const server = express();
         server.all("*", (req: Request, res: Response) => {
             return res.send("Hello, World!");
-            //handle(req, res);
+            //return handle(req, res);
         });
         server.listen(port, (err?: any) => {
             if (err) throw err;
