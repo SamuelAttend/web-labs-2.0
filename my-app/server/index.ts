@@ -53,6 +53,7 @@ db.mongoose
     });
 
 require("./routes/auth.rotes")(server);
+require("./routes/authCheck.routes")(server);
 
 (async () => {
     try {

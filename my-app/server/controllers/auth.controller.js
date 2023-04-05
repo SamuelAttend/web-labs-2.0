@@ -27,7 +27,7 @@ const signin = (req, res) => {
         const passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
         if (passwordIsValid)
         {
-            const jwt = jwt.sign({id: user.id}, "secret", {expiresIn: 1000 * 60 * 60});
+            const token = jwt.sign({id: user.id}, "secret", {expiresIn: 1000 * 60 * 60});
             return res.status(200).send({message: "User was authenticated", user: {
                 username: user.username,
                 nickname: user.nickname,
