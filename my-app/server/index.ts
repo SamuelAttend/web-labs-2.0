@@ -52,22 +52,23 @@ db.mongoose
         process.exit();
     });
 
-// (async () => {
-//     try {
-//         await app.prepare();
-//         const server = express();
-//         server.all("*", (req: Request, res: Response) => {
-//             return res.send("Hello, World!");
-//             //return handle(req, res);
-//         });
-//         server.listen(port, (err?: any) => {
-//             if (err) throw err;
-//             console.log(
-//                 `> Ready on localhost:${port} - env ${process.env.NODE_ENV}`
-//             );
-//         });
-//     } catch (e) {
-//         console.error(e);
-//         process.exit(1);
-//     }
-// })();
+require("./routes/auth.rotes")(server);
+
+(async () => {
+    try {
+        await app.prepare();
+        server.all("*", (req: Request, res: Response) => {
+            return res.send("Hello, World!");
+            //return handle(req, res);
+        });
+        server.listen(port, (err?: any) => {
+            if (err) throw err;
+            console.log(
+                `> Ready on localhost:${port} - env ${process.env.NODE_ENV}`
+            );
+        });
+    } catch (e) {
+        console.error(e);
+        process.exit(1);
+    }
+})();
