@@ -2,9 +2,10 @@ import mongoose from "mongoose";
 mongoose.Promise = global.Promise;
 
 const db = {};
+db.mongoose = mongoose;
 
-db.user = reqire("./user.model");
+db.user = require("./user.model");
 db.chat = require("./chat.model");
-db.message = require("./chat.model");
+db.message = require("./message.model");
 
 module.exports = db;

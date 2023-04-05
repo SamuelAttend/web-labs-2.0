@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
 
 const User = mongoose.model("User", new mongoose.Schema({
-    name: String,
+    username: String,
+    nickname: String,
     email: String,
     password: String
 }));
