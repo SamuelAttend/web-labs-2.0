@@ -54,6 +54,7 @@ db.mongoose
 
 require("./routes/auth.rotes")(server);
 require("./routes/authCheck.routes")(server);
+require("./routes/chats.routes")(server);
 
 (async () => {
     try {
