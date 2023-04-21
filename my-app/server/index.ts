@@ -60,8 +60,7 @@ require("./routes/chats.routes")(server);
     try {
         await app.prepare();
         server.all("*", (req: Request, res: Response) => {
-            return res.send("Hello, World!");
-            //return handle(req, res);
+            return handle(req, res);
         });
         server.listen(port, (err?: any) => {
             if (err) throw err;
