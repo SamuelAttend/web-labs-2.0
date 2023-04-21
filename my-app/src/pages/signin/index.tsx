@@ -1,12 +1,16 @@
 import { Box, Button, TextField } from "@mui/material";
 import { useState } from "react";
 import { sx } from "../../props/box.sx";
+import { useSigninMutation } from "@/store/authApi";
+import { error } from "console";
 
 export default function Index() {
     const [email, setEmail] = useState<String>("");
 
     const [password, setPassword] = useState<String>("");
     const [passwordError, setPasswordError] = useState<boolean>(false);
+
+    const [signin] = useSigninMutation();
 
     return (
         <>
@@ -40,7 +44,13 @@ export default function Index() {
                     variant="outlined"
                     onClick={() => {
                         if (!passwordError) {
-                            console.log("CLICK!");
+                            signin({ email, password })
+                                .then((info) => {
+                                    console.log(info);
+                                })
+                                .catch((error) => {
+                                    console.log(error);
+                                });
                         }
                     }}
                 >
